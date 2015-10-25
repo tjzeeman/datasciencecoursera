@@ -13,4 +13,4 @@ In the process the column names are replaced with more meaningful ones based on 
 
 The test and training data is then combined and the activity name is added for human readability.
 
-Finally the script should group the data per activity and subject and calculate an average for each.
+Finally the script should group the data per activity and subject and calculate an average for each. The result of which will be written to a file called _data.txt_.

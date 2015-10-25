@@ -33,9 +33,11 @@ dataset <- rbind(test, train)
 # get the activity translation
 activity_labels <- read.table("UCI HAR Dataset/activity_labels.txt", col.names = c("activity", "activity_name"))
 
+# perform analysis
+data <- dataset %>% group_by(subject, activity) %>% summarise_each(funs(mean))
+
 # merge activity
-activity_ds <- merge(dataset, activity_labels, by = "activity", all.x = TRUE)
+activity_ds <- merge(data, activity_labels, by = "activity", all.x = TRUE)
 
-# TODO: perform analysis
-
-
+# write file output
+write.table(activity_ds, file = "data.txt", row.name=FALSE)
